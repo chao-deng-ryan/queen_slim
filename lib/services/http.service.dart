@@ -1,6 +1,7 @@
 import 'package:dio/adapter.dart';
 import 'package:get/get.dart' hide Response;
 import 'package:dio/dio.dart' hide LogInterceptor;
+import 'package:queen_slim/enums/http_status_code.enum.dart';
 import 'package:queen_slim/interceptors/retry.interceptor.dart';
 import 'package:queen_slim/services/log.service.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -10,10 +11,10 @@ const authenticationHttpServiceTag = 'authentication';
 const utilHttpServiceTag = 'util';
 const managementHttpServiceTag = 'management';
 
-class AresException {
+class QueenException {
   final String message;
   final int statusCode;
-  const AresException(this.statusCode, this.message);
+  const QueenException(this.statusCode, this.message);
 }
 
 class HttpService extends GetxService {
@@ -30,7 +31,7 @@ class HttpService extends GetxService {
   }
 
   // ignore: long-method, code-metrics
-  Future<HttpService> initialize(String baseUrl, {bool useAresInterceptor = true}) async {
+  Future<HttpService> initialize(String baseUrl, {bool useQueenInterceptor = true}) async {
     _baseUrl = baseUrl;
     _client = Dio();
     _client.options.baseUrl = baseUrl;
@@ -47,9 +48,6 @@ class HttpService extends GetxService {
         };
       }
     }
-    // if (useAresInterceptor) {
-    //   _client.interceptors.add(AresInterceptor());
-    // }
     _client.interceptors.add(
       RetryInterceptor(
         dio: _client,
@@ -64,7 +62,6 @@ class HttpService extends GetxService {
         ),
       ),
     );
-    // _client.interceptors.add(LogInterceptor());
     return this;
   }
 
@@ -94,10 +91,11 @@ class HttpService extends GetxService {
       return response.data;
     } catch (error, stackTrace) {
       if (error is DioError && error.response != null) {
-        logService.e(error.response!.statusMessage ?? 'http请求异常', error, stackTrace);
-        throw AresException(error.response!.statusCode!, error.response!.statusMessage!);
+        logService.e(error.response!.statusMessage ?? 'common.exception.http.request'.tr, error, stackTrace);
+        throw QueenException(error.response!.statusCode!, error.response!.statusMessage!);
       } else {
-        logService.e('http请求异常', error, stackTrace);
+        logService.e('common.exception.http.request'.tr, error, stackTrace);
+        throw QueenException(HttpStatusCode.internalServerError.value, 'common.exception.http.request'.tr);
       }
     }
   }
@@ -142,10 +140,11 @@ class HttpService extends GetxService {
       return response.data;
     } catch (error, stackTrace) {
       if (error is DioError && error.response != null) {
-        logService.e(error.response!.statusMessage ?? 'http请求异常', error, stackTrace);
-        throw AresException(error.response!.statusCode!, error.response!.statusMessage!);
+        logService.e(error.response!.statusMessage ?? 'common.exception.http.request'.tr, error, stackTrace);
+        throw QueenException(error.response!.statusCode!, error.response!.statusMessage!);
       } else {
-        logService.e('http请求异常', error, stackTrace);
+        logService.e('common.exception.http.request'.tr, error, stackTrace);
+        throw QueenException(HttpStatusCode.internalServerError.value, 'common.exception.http.request'.tr);
       }
     }
   }
@@ -193,10 +192,11 @@ class HttpService extends GetxService {
       return response.data;
     } catch (error, stackTrace) {
       if (error is DioError && error.response != null) {
-        logService.e(error.response!.statusMessage ?? 'http请求异常', error, stackTrace);
-        throw AresException(error.response!.statusCode!, error.response!.statusMessage!);
+        logService.e(error.response!.statusMessage ?? 'common.exception.http.request'.tr, error, stackTrace);
+        throw QueenException(error.response!.statusCode!, error.response!.statusMessage!);
       } else {
-        logService.e('http请求异常', error, stackTrace);
+        logService.e('common.exception.http.request'.tr, error, stackTrace);
+        throw QueenException(HttpStatusCode.internalServerError.value, 'common.exception.http.request'.tr);
       }
     }
   }
@@ -225,7 +225,6 @@ class HttpService extends GetxService {
   Options setShowLoadingInExtra({required bool showLoading, Options? options}) {
     options ??= Options();
     options.extra ??= {};
-    // options.extra![extraShowLoadingKey] = showLoading;
     return options;
   }
 }

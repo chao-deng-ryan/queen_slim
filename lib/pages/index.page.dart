@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart' hide Table;
+import 'package:flutter/material.dart';
+import 'package:queen_slim/pages/home.page.dart';
 
 class Index extends StatelessWidget {
   const Index({Key? key}) : super(key: key);
@@ -7,6 +8,6 @@ class Index extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('皇后与瘦子');
+    return const Home();
   }
 }

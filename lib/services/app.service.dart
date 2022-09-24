@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:queen_slim/config.dart';
+import 'package:queen_slim/environment/environment.enum.dart';
 import 'package:queen_slim/services/http.service.dart';
 import 'package:queen_slim/services/log.service.dart';
 import 'package:queen_slim/services/storage.service.dart';
@@ -11,33 +12,21 @@ class AppService extends GetxService {
     await Get.putAsync(() => StorageService().initialize());
 
     // 2.2 根据当前环境,初始化config
-    await Config.initialize();
+    await Config.initialize(Environment.test);
 
     // 3. 完成各个service的注册
     await Get.putAsync(() => LogService().initialize());
 
     // 3.1 注册与环境url相关的service, 根据config使用相应的环境url
     final HttpService httpService = await Get.putAsync(() => HttpService().initialize(Config.instance.baseUrl));
-    final HttpService authenticationHttpService =
-        await Get.putAsync(() => HttpService().initialize(Config.instance.authenticationUrl), tag: authenticationHttpServiceTag);
-    final HttpService utilHttpService = await Get.putAsync(
-      () => HttpService().initialize(Config.instance.utilUrl, useAresInterceptor: false),
-      tag: utilHttpServiceTag,
-    );
-    final HttpService managementHttpService =
-        await Get.putAsync(() => HttpService().initialize(Config.instance.managementUrl), tag: managementHttpServiceTag);
 
     await httpService.setBaseUrl(Config.instance.baseUrl);
-    await managementHttpService.setBaseUrl(Config.instance.managementUrl);
-    await authenticationHttpService.setBaseUrl(Config.instance.authenticationUrl);
-    await utilHttpService.setBaseUrl(Config.instance.utilUrl);
 
     // 3.2 根据config,判断是否使用mockService
     // if (Config.instance.isMock) {
     //   mockUtilHttpService();
     //   mockAuthenticationHttpService();
-    //   mockRestaurantHttpService();
-    //   mockManagementHttpService();
+    //   mockQueenSlimHttpService();
     // }
 
     return this;

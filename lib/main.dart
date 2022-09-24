@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:get/get.dart';
 import 'package:queen_slim/app.dart';
+import 'package:queen_slim/services/log.service.dart';
 
 Future<void> main() async {
   runZonedGuarded<Future<void>>(
@@ -10,10 +12,11 @@ Future<void> main() async {
     (Object error, StackTrace stack) {
       // 后续替换为sentry
       try {
-        // final LogService logService = Get.find<LogService>();
-        // logService.e(error, error, stack);
+        final LogService logService = Get.find<LogService>();
+        logService.e(error, error, stack);
       } finally {
-        // print('runZonedGuarded');
+        // ignore: avoid_print
+        print('runZonedGuarded');
       }
     },
   );
