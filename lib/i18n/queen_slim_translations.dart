@@ -21,6 +21,10 @@ class QueenSlimTranslations extends Translations {
 
           // page
           "common.page.title": "皇后与瘦子",
+
+          // widget
+          "common.widget.weight.title": "体重管理",
+          "common.widget.weight.unit": "公斤",
         },
       };
 }

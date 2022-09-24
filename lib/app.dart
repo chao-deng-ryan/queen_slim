@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:queen_slim/i18n/i18n.dart';
-import 'package:queen_slim/i18n/queen_slim_translations.dart';
-import 'package:queen_slim/pages/index.page.dart';
-import 'package:queen_slim/services/app.service.dart';
-import 'package:queen_slim/services/log.service.dart';
+import 'package:queen_slim/i18n/index.dart';
+import 'package:queen_slim/pages/index.dart';
+import 'package:queen_slim/services/index.dart';
 import 'package:queen_slim/themes.dart';
 
 Future<void> queenApp() async {

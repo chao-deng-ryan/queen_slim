@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:queen_slim/environment/environment.enum.dart';
-import 'package:queen_slim/services/log.service.dart';
+import 'package:queen_slim/enums/index.dart';
+import 'package:queen_slim/services/index.dart';
 
 import 'package:queen_slim/environment/development.dart' as development;
 import 'package:queen_slim/environment/prepub.dart' as prepub;

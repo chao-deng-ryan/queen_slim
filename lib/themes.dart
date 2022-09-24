@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queen_slim/utils/theme.util.dart';
+import 'package:queen_slim/utils/index.dart';
 
 final baseLightTheme = ThemeData.light();
 final baseDarkTheme = ThemeData.dark();

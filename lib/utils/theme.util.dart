@@ -1,4 +1,4 @@
-import 'package:queen_slim/environment/environment.enum.dart';
+import 'package:queen_slim/enums/index.dart';
 import 'package:flutter/material.dart';
 
 MaterialColor createMaterialColor(Color color) {
@@ -30,7 +30,7 @@ class QueenLayout {
     this.titleBaseline = 14.0,
     this.subTitleBaseline = 16.0,
     this.iconSize = 18.0,
-    this.margin = 14.0,
+    this.margin = 16.0,
     this.spacing = 8.0,
     this.wrapSpacing = 4.0,
     this.wrapRunSpacing = 4.0,
@@ -47,6 +47,10 @@ class QueenLayout {
     this.toastVerticalPosition = 12.0,
     this.buttonTextSize = 18.0,
     this.baseColorOpacity = 0.1,
+    this.titleFontSize = 18.0,
+    this.subTitleFontSize = 14.0,
+    this.bottomValueFontSize = 24.0,
+    this.bottomValueUnitFontSize = 12.0,
   });
   double padding;
   double borderRadius;
@@ -71,6 +75,10 @@ class QueenLayout {
   double toastVerticalPosition;
   double buttonTextSize;
   double baseColorOpacity;
+  double titleFontSize;
+  double subTitleFontSize;
+  double bottomValueFontSize;
+  double bottomValueUnitFontSize;
 }
 
 class QueenStyle {
@@ -98,7 +106,7 @@ class QueenColor {
     this.tableName = const Color(0xFF424242),
     this.orderCancelled = const Color(0xFFFF4d4F),
     this.orderClosed = const Color(0xFF2ba245),
-    this.title = const Color(0xFFFFFFFF),
+    this.title = const Color(0xFF424242),
   });
 
   Map<Environment, Color> environment;
@@ -119,12 +127,15 @@ class QueenColor {
   Color shadowColor = Colors.black38;
   Color baseColor = const Color(0xFFF0F0F0);
   Color descriptionColor = const Color(0xBF424242);
-  Color subTitleColor = const Color(0xFF999999);
+  Color subTitle = const Color(0xFF999999);
   Color priceColor = const Color(0xFFFF4949);
   Color quantityColor = const Color(0xFF000000);
   Color dividerColor = const Color(0xFFDFDFDF);
   Color placeholderColor = const Color(0xFFC9C9C9);
   Color loginBackgroundColor = const Color(0xFFBBDEFB);
+
+  Color bottomText = const Color(0xFF424242);
+  Color bottomUnit = const Color(0xFF999999);
 }
 
 class QueenTheme {

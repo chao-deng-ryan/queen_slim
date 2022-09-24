@@ -1,15 +1,10 @@
 import 'package:dio/adapter.dart';
 import 'package:get/get.dart' hide Response;
 import 'package:dio/dio.dart' hide LogInterceptor;
-import 'package:queen_slim/enums/http_status_code.enum.dart';
+import 'package:queen_slim/enums/index.dart';
 import 'package:queen_slim/interceptors/retry.interceptor.dart';
-import 'package:queen_slim/services/log.service.dart';
-// ignore: import_of_legacy_library_into_null_safe
+import 'package:queen_slim/services/index.dart';
 import 'package:system_proxy/system_proxy.dart';
-
-const authenticationHttpServiceTag = 'authentication';
-const utilHttpServiceTag = 'util';
-const managementHttpServiceTag = 'management';
 
 class QueenException {
   final String message;

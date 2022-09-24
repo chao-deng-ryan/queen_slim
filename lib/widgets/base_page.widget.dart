@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:queen_slim/widget/pull_to_refresh.widget.dart';
-import 'package:queen_slim/utils/theme.util.dart';
+import 'package:queen_slim/widgets/index.dart';
+import 'package:queen_slim/utils/index.dart';
 
 class BaseController extends GetxController {
   Rx<ThemeMode> theme = ThemeMode.light.obs;

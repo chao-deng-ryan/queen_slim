@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
-import 'package:queen_slim/services/log.service.dart';
+import 'package:queen_slim/services/index.dart';
 
 /// 参考：https://github.com/aloisdeniel/dio_retry
 
