@@ -17,6 +17,7 @@ class AppService extends GetxService {
 
     //
     await Get.putAsync(() => WeightService().initialize());
+    await Get.putAsync(() => HomeService().initialize());
 
     // 3.1 注册与环境url相关的service, 根据config使用相应的环境url
     final HttpService httpService = await Get.putAsync(() => HttpService().initialize(Config.instance.baseUrl));

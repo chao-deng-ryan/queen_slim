@@ -13,6 +13,7 @@ class QueenBasePage extends StatelessWidget {
   final String? title;
   final bool? resizeToAvoidBottomInset;
   final bool? showChangeThemeButton;
+  final double? preferredHeight;
   final List<Widget>? appbarActions;
   final Widget? appbarLeading;
   final Widget? fixedTop;
@@ -33,6 +34,7 @@ class QueenBasePage extends StatelessWidget {
     this.appbarActions,
     this.resizeToAvoidBottomInset = false,
     this.showChangeThemeButton = true,
+    this.preferredHeight = 0,
     this.fixedTop,
     this.top,
     required this.main,
@@ -56,7 +58,7 @@ class QueenBasePage extends StatelessWidget {
 
   PreferredSizeWidget createAppBarComponent(BuildContext context) {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(kToolbarHeight + 30),
+      preferredSize: Size.fromHeight(kToolbarHeight + preferredHeight!),
       child: Column(
         children: [
           GFAppBar(
@@ -115,6 +117,7 @@ class QueenBasePage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             if (top != null) top!,
             if (main != null)

@@ -51,6 +51,8 @@ class QueenLayout {
     this.subTitleFontSize = 14.0,
     this.bottomValueFontSize = 24.0,
     this.bottomValueUnitFontSize = 12.0,
+    this.homePreferredHeight = 40.0,
+    this.weightCardPadding = 12.0,
   });
   double padding;
   double borderRadius;
@@ -79,6 +81,8 @@ class QueenLayout {
   double subTitleFontSize;
   double bottomValueFontSize;
   double bottomValueUnitFontSize;
+  double homePreferredHeight;
+  double weightCardPadding;
 }
 
 class QueenStyle {

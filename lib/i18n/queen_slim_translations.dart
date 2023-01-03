@@ -21,9 +21,15 @@ class QueenSlimTranslations extends Translations {
 
           // page
           "common.page.title": "皇后与瘦子",
+          "common.page.home.notes": "新手须知",
 
           // widget
-          "common.widget.weight.title": "体重管理",
+          "common.widget.weight.management": "体重管理",
+          "common.widget.weight.today": "今日体重",
+          "common.widget.weight.comparedToYesterday": "较昨日",
+          "common.widget.weight.healthIndex": "健康指数",
+          "common.widget.weight.up": "增加",
+          "common.widget.weight.down": "下降",
           "common.widget.weight.unit": "公斤",
         },
       };

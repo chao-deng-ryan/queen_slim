@@ -22,7 +22,9 @@ class QueenCardTitle extends StatelessWidget {
           color: Theme.of(context).queen().color.title,
         ),
         Padding(
-          padding: EdgeInsets.only(top: Theme.of(context).queen().layout.padding / 4),
+          padding: EdgeInsets.only(
+            top: Theme.of(context).queen().layout.padding / 4,
+          ),
           child: QueenSubtitle(
             text: subTitle,
             color: Theme.of(context).queen().color.subTitle,

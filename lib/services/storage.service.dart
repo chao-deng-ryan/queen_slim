@@ -26,4 +26,13 @@ class StorageService extends GetxService {
   set weights(List<Weight> weights) {
     _localStorage.write(weightsKey, weights.map((e) => e.toJson()));
   }
+
+  T? findByKey<T>(String key) {
+    if (_localStorage.read<T>(key) != null) {
+      final valueFromStorage = _localStorage.read<T>(key) as T;
+      return valueFromStorage;
+    } else {
+      return null;
+    }
+  }
 }

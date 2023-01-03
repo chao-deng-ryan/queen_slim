@@ -9,4 +9,8 @@ class DateUtil {
   static String todayFormatWithSlashSeparator() {
     return Day().toLocal().format(Constants.DATE_FORMAT_YYYYMMDD_PAGE);
   }
+
+  static String dateFormat(Day date) {
+    return date.toLocal().format(Constants.DATE_FORMAT_YYYYMMDD);
+  }
 }

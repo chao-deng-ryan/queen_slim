@@ -10,6 +10,7 @@ class QueenCard extends StatelessWidget {
   final double? maxWidth;
   final double? minWidth;
   final double? minHeight;
+  final double? padding;
   final Function? onPress; //点击回调的方法，可选
   final Function? onLongPress; //长按回调的方法，可选
 
@@ -25,6 +26,7 @@ class QueenCard extends StatelessWidget {
     this.maxWidth,
     this.minWidth = 0,
     this.minHeight,
+    this.padding,
   }) : super(key: key);
 
   @override
@@ -32,22 +34,6 @@ class QueenCard extends StatelessWidget {
     //　常量定义
     // 边框圆角
     final BorderRadius cardBorderRadius = borderRadius ?? BorderRadius.circular(Theme.of(context).queen().layout.borderRadius);
-
-    // return ConstrainedBox(
-    //   constraints: BoxConstraints(minHeight: minHeight ?? 88, maxWidth: maxWidth!, minWidth: minWidth!),
-    //   child: Card(
-    //     elevation: 1,
-    //     margin: EdgeInsets.all(Theme.of(context).queen().layout.margin / 2),
-    //     child: Column(
-    //       crossAxisAlignment: CrossAxisAlignment.start,
-    //       children: [
-    //         if (title != null) title!,
-    //         if (content != null) content!,
-    //         if (bottom != null) bottom!,
-    //       ],
-    //     ),
-    //   ),
-    // );
 
     return ConstrainedBox(
       constraints: BoxConstraints(minHeight: minHeight ?? 68, maxWidth: maxWidth!, minWidth: minWidth!),
@@ -78,14 +64,19 @@ class QueenCard extends StatelessWidget {
               clipBehavior: Clip.none,
               alignment: AlignmentDirectional.centerStart,
               children: [
-                Column(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
-                  // mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    if (title != null) title!,
-                    if (content != null) content!,
-                    if (bottom != null) bottom!,
-                  ],
+                Padding(
+                  padding: EdgeInsets.all(
+                    padding ?? Theme.of(context).queen().layout.padding,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      if (title != null) title!,
+                      if (content != null) content!,
+                      if (bottom != null) bottom!,
+                    ],
+                  ),
                 ),
               ],
             ),

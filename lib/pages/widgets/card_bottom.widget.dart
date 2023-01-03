@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:queen_slim/utils/index.dart';
-import 'package:queen_slim/widgets/index.dart';
 
 class QueenCardBottom extends StatelessWidget {
-  final double value;
-  final String unit;
+  final String value;
+  final String? unit;
+  final Color? color;
 
   const QueenCardBottom({
-    this.value = 0.0,
-    this.unit = '',
+    this.value = '',
+    this.unit,
+    this.color,
     Key? key,
   }) : super(key: key);
 
@@ -19,19 +19,20 @@ class QueenCardBottom extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: value.toString(),
+            text: value,
             style: TextStyle(
-              color: Theme.of(context).queen().color.bottomText,
+              color: color ?? Theme.of(context).queen().color.bottomText,
               fontSize: Theme.of(context).queen().layout.bottomValueFontSize,
             ),
           ),
-          TextSpan(
-            text: unit,
-            style: TextStyle(
-              color: Theme.of(context).queen().color.bottomUnit,
-              fontSize: Theme.of(context).queen().layout.bottomValueUnitFontSize,
+          if (unit != null)
+            TextSpan(
+              text: unit,
+              style: TextStyle(
+                color: Theme.of(context).queen().color.bottomUnit,
+                fontSize: Theme.of(context).queen().layout.bottomValueUnitFontSize,
+              ),
             ),
-          ),
         ],
       ),
     );

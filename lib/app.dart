@@ -36,6 +36,16 @@ Future<void> queenApp() async {
         transition: Transition.fade,
         page: () => const Index(),
       ),
+      GetPage(
+        name: "/home",
+        transition: Transition.fade,
+        page: () => Home(),
+      ),
+      GetPage(
+        name: "/note",
+        transition: Transition.rightToLeftWithFade,
+        page: () => const Note(),
+      ),
     ],
     initialRoute: initialRoute,
     routingCallback: (Routing? routing) {
