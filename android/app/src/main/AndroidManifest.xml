@@ -1,9 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.queen_slim">
+    <!-- [android:usesCleartextTraffic] Allow use localhost -->
    <application
         android:label="queen_slim"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -31,4 +33,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <!-- Allow use http service -->
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
